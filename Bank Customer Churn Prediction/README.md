@@ -36,25 +36,30 @@ The repository is organized as follows:
 1. **Clone the Repository**
    ```
    git clone https://github.com/yourusername/bank-customer-churn-prediction.git
-   cd bank-customer-churn-prediction```
+   cd bank-customer-churn-prediction
+   
 2. **Install Dependencies**
    Ensure you have Python and pip installed. Then, install the required packages.
    ```
-   pip install -r requirements.txt```
+   pip install -r requirements.txt
+   
 3. **Preprocess Data**
    Run the preprocessing script to clean and transform the data
    ```
-   python src/preprocess_data.py```
+   python src/preprocess_data.py
+   
 4. **Run Jupyter Notebook**
    Start Jupyter Notebook and open the notebooks in the notebooks/ directory to explore data, train models, and evaluate performance.
-5. **Train the Model**
+   
+6. **Train the Model**
    Run the model training script
    ```
-   python src/train_model.py```
-6. **Evaluate the Model**
+   python src/train_model.py
+   
+7. **Evaluate the Model**
    Run the evaluation script to get performance metrics and plots.
    ```
-   python src/evaluate_model.py```
+   python src/evaluate_model.py
    
 ## Features and Techniques
 **Data Preprocessing**
