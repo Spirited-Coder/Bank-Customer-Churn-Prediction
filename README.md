@@ -1,7 +1,31 @@
 # Bank Customer Churn Prediction
 
-## Project Overview
-This repository contains a machine learning project aimed at predicting whether a bank customer will churn, i.e., leave the bank. Using a dataset obtained from Kaggle, the project leverages various data preprocessing techniques, exploratory data analysis, feature engineering, and machine learning algorithms to build an effective churn prediction model.
+This project is a Flask web application designed to predict bank customer churn. It includes user authentication and a machine learning model for churn prediction.
+
+## Features
+
+- User Registration
+- User Login
+- Churn Prediction
+- Responsive Design
+
+## Screenshots
+
+### Login Page
+![Login Page](./screenshots/login_page.png)
+
+### Registration Page
+![Registration Page](./screenshots/register_page.png)
+
+### Prediction Page
+![Prediction Page](./screenshots/predict_page.png)
+
+## Installation
+
+### Prerequisites
+
+- Python 3.x
+- Virtual Environment (recommended)
 
 ## Dataset
 The dataset used in this project is sourced from Kaggle's "Bank Customer Churn Prediction" competition. It contains customer information and various features that can be used to predict churn.
@@ -26,9 +50,14 @@ The dataset used in this project is sourced from Kaggle's "Bank Customer Churn P
 The repository is organized as follows:
 
 - `data/`: Directory containing the dataset.
-- `notebooks/`: Jupyter notebooks for exploratory data analysis, model training, and evaluation.
+- `static/`: Directory containing the css files and images.
+- `screenshots/`: Directory containing the screenshots of the website.
+- `templates/`: Directory containing the templates.
 - `src/`: Source code for data preprocessing, feature engineering, model building, and evaluation.
 - `models/`: Directory for saving trained models.
+- `script.py/`: File containing the main Flask application.
+- `userdb.py/`: File where the database was created.
+- `requirements.text/`: File where the requirements are mentioned.
 - `reports/`: Generated reports and visualizations from the analysis.
 - `README.md`: Project overview and instructions.
 
@@ -38,67 +67,40 @@ The repository is organized as follows:
    git clone https://github.com/yourusername/bank-customer-churn-prediction.git
    cd bank-customer-churn-prediction
    
-2. **Install Dependencies**
-   Ensure you have Python and pip installed. Then, install the required packages.
+2. **Create and Activate a virtual environment**
+   ```
+   python -m venv venv
+   source venv/bin/activate  # On Windows use `venv\Scripts\activate`
+   
+3. **Install the required dependencies**
    ```
    pip install -r requirements.txt
    
-3. **Preprocess Data**
-   Run the preprocessing script to clean and transform the data
+4. **Initialize the database**
    ```
-   python src/preprocess_data.py
+   python db_create.py
    
-4. **Run Jupyter Notebook**
-   Start Jupyter Notebook and open the notebooks in the notebooks/ directory to explore data, train models, and evaluate performance.
-   
-6. **Train the Model**
-   Run the model training script
+5. **Run the application**
    ```
-   python src/train_model.py
-   
-7. **Evaluate the Model**
-   Run the evaluation script to get performance metrics and plots.
-   ```
-   python src/evaluate_model.py
-   
-## Features and Techniques
-**Data Preprocessing**
-<ul>
-    <li>Handling Missing Values</li>
-    <li>Dropping Irrelevant Columns</li>
-    <li>Converting categorical features to numerical values using one-hot encoding</li>
-</ul>
+   python app.py
 
-**Exploratory Data Analysis**
-<ul>
-    <li>Visualizing distributions of features</li>
-    <li>Identifying correlations between features and the target variable</li>
-    <li>Detecting outliers and anomalies</li>
-</ul>
-
-**Feature Engineering**
-<ul>
-    <li>Creating new features based on domain knowledge</li>
-    <li>Scaling numerical features</li>
-    <li>Encoding categorical features</li>
-</ul>
-
-**Model Building**
-<ul>
-    <li>Training various machine learning models (e.g., Logistic Regression, Decision Trees, Random Forests, Gradient Boosting)</li>
-    <li>Hyperparameter tuning using Grid Search and Random Search</li>
-    <li>Evaluating model performance using cross-validation</li>
-</ul>
-
-**Model Evaluation**
-<ul>
-    <li>Confusion matrix, classification report (precision, recall, F1-score)</li>
-    <li>ROC curve and AUC score</li>
-    <li>Precision-Recall curve</li>
-</ul>
+## Usage
+Open your web browser and navigate to http://localhost:5000.
+### User Registration
+- Navigate to the registration page.
+- Fill in your details and submit the form to create a new account.
+### User Login
+- Navigate to the login page.
+- Enter your email and password to log in.
+### Churn Prediction
+- Once logged in, navigate to the prediction page.
+- Enter the required customer information to predict whether the customer will churn.
 
 ## License
 This project is licensed under the MIT License. See the LICENSE file for details.
+
+## Contributing
+Contributions are welcome! Please open an issue or submit a pull request for any improvements or bug fixes.
 
 ## Acknowledgements
 <ul>
