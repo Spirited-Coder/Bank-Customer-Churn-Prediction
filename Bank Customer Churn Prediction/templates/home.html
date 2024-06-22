@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Disease Predictor</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='home_style.css') }}">
+</head>
+<body>
+    <div class="header">
+        <div class="sub_header1">
+            <div class="welcome">
+                <h1>Welcome {{ session['username'] }}</h1>
+            </div>
+            <div>
+                <h1>Bank Churn Predictor</h1>
+            </div>
+            <div>
+                <p class="logout-button"><a href="{{ url_for('logout') }}">Logout</a></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="predict-form">
+        <div id="churn-form" class="form-container">
+            <h2>Churn Prediction</h2>
+            <form id="prediction-form-churn" method="POST" action="/predict_churn">
+                <label for="creditScore">Credit Score</label>
+                <input type="text" id="creditScore" name="creditScore" required>
+                
+                <label for="age">Age</label>
+                <input type="text" id="age" name="age" required>
+                
+                <label for="tenure">Tenure</label>
+                <input type="text" id="tenure" name="tenure" required>
+                
+                <label for="balance">Balance</label>
+                <input type="text" id="balance" name="balance" required>
+                
+                <label for="numberOfProducts">Number of Products</label>
+                <input type="text" id="numberOfProducts" name="numberOfProducts" required>
+                
+                <label for="hasCreditCard">Has Credit Card? (1/0)</label>
+                <input type="text" id="hasCreditCard" name="hasCreditCard" required>
+                
+                <label for="isActiveMember">Is Active Member? (1/0)</label>
+                <input type="text" id="isActiveMember" name="isActiveMember" required>
+                
+                <label for="estimatedSalary">Estimated Salary</label>
+                <input type="text" id="estimatedSalary" name="estimatedSalary" required>
+                
+                <label for="Germany">Germany (1/0)</label>
+                <input type="text" id="Germany" name="Germany" required>
+                
+                <label for="Spain">Spain (1/0)</label>
+                <input type="text" id="Spain" name="Spain" required>
+                
+                <label for="gender">Gender</label>
+                <input type="text" id="gender" name="gender" required>
+                
+                <input type="submit" value="Predict">
+            </form>
+            <h3 id="result-churn"></h3>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('prediction-form-churn').onsubmit = async (e) => {
+            e.preventDefault();
+            const creditScore = parseFloat(document.getElementById('creditScore').value);
+            const age = parseFloat(document.getElementById('age').value);
+            const tenure = parseFloat(document.getElementById('tenure').value);
+            const balance = parseFloat(document.getElementById('balance').value);
+            const numberOfProducts = parseFloat(document.getElementById('numberOfProducts').value);
+            const hasCreditCard = parseFloat(document.getElementById('hasCreditCard').value);
+            const isActiveMember = parseFloat(document.getElementById('isActiveMember').value);
+            const estimatedSalary = parseFloat(document.getElementById('estimatedSalary').value);
+            const Germany = parseFloat(document.getElementById('Germany').value);
+            const Spain = parseFloat(document.getElementById('Spain').value);
+            const gender = parseFloat(document.getElementById('gender').value);
+    
+            const features = [creditScore, age, tenure, balance, numberOfProducts, hasCreditCard, isActiveMember, estimatedSalary, Germany, Spain, gender];
+    
+            const response = await fetch('/predict_churn', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ features })
+            });
+            const result = await response.json();
+            document.getElementById('result-churn').innerText = `Prediction: ${result.prediction}`;
+        };
+    </script>
+</body>
+</html>
