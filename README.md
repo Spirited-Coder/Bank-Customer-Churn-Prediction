@@ -10,6 +10,7 @@ This project is a Flask web application designed to predict bank customer churn.
 - Responsive Design
 
 ## Screenshots
+[Watch the Video](https://youtu.be/hrxAGS3kCL8)
 
 ### Login Page
 ![Login Page](./Bank%20Customer%20Churn%20Prediction/screenshots/login_page.png)
